@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#image-container{
+    position: absolute;
+    border: 5px solid black;
+    width: 400px ;
+    height: 1000px;
+    background-image: url(/assets/olena-bohovyk-3BlVILvh9hM-unsplash.jpg);
+    background-size: cover;
+}
+
+#image-container > div>img{
+
+    background-color: rgb(38, 38, 38);
+}
+
+
+#text-container{
+    border: 5px solid red;
+}
