@@ -1,24 +1,160 @@
+:root{
+    --div-full-size:100vh;
+    --img-container: 25vw;
+    --text-container-margin: calc(var(--img-container) - 100vw);
+    --box-size: 73%;
+    --bold-text-size: 25px;
+
+}
+
 *{
     margin: 0px;
     padding: 0px;
+    font-family: "Zeyada",Arial, Helvetica, sans-serif;
+}
+
+
+
+@font-face {
+    font-family: "Zeyada";
+    src: url("Zeyada Font/Zeyada-Regular.ttf");
 }
 
 
 #image-container{
-    position: absolute;
-    border: 5px solid black;
-    width: 400px ;
-    height: 1000px;
+    position: static;
+    width: var(--img-container);
+    height: var(--div-full-size);
     background-image: url(/assets/olena-bohovyk-3BlVILvh9hM-unsplash.jpg);
     background-size: cover;
 }
 
-#image-container > div>img{
+#image-container > div{
+    bottom: 0px;
+    position: absolute;
+    top: 40%;
+    width: var(--img-container);
+    height: 20%;
+    font-size: 100%;
 
-    background-color: rgb(38, 38, 38);
+    background-color: rgba(255, 255, 255, 0.6);
 }
+
 
 
 #text-container{
-    border: 5px solid red;
+    margin-left: var(--img-container);
+    width: 100vw;
+    height: var(--div-full-size);
+    background-color: white;
+    position: absolute;
+    top: 0px;
 }
+
+
+#text-container div:first-child{
+    width: var(--box-size);
+    padding: 50px;
+    font-size: var(--bold-text-size);
+    font-weight: 900;
+}
+
+
+#text-container div:nth-child(2) h3:first-child{
+    font-weight: 900;
+    font-size: var(--bold-text-size) ;
+
+}
+
+#text-container > *{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+fieldset {
+    border: 0px;
+
+    margin: 10px;
+    padding: 5px;
+}
+
+legend{
+    color: grey;
+    font-family: monospace,Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-size: 1cqmax;
+}
+
+input{
+    height: 30px;
+    width: 280px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid #E5E7EB;
+    border-radius: 5px;
+}
+
+
+button{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    height: 50px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #596D48;
+    border: 2px solid white;
+    box-shadow: 5px 5px 5px;
+}
+
+main div:last-child p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#text-container div:nth-child(3){
+    margin: 0px;
+    width: 78.5%;
+    padding: 10px;
+
+}
+
+.error{
+    border: 2px solid red;
+}
+
+input:focus{
+    box-shadow: 0px 0px black;
+    border-color: black;
+}
+
+
+.login{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #596D48;
+}
+
+
+.formBorder{
+    box-shadow: 3px 3px 10px;
+    margin: 10px;
+    margin-left:0px ;
+}
+
+.button-section{
+    margin-left: 30px ;
+}
+
+.button-section p{
+    margin: 10px;
+}
+
+.error{
+    font-size: 10px;
+    color: red;
+    font-style: italic;
+    border: 0px;
+    font-weight: 100;
+}
+
+
+

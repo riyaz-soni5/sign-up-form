@@ -8,58 +8,141 @@
 </head>
 <body>
     <main>
-        <div id="image-container">
-            <div><img src="" alt="this is a logo"></div>
+        <div id="image-container" style="color: white; font-size: 50px;">
+            <div style="color: black;"><img src="/assets/bird-osprey-shape.png" alt="this is a logo" style="width: 40%;">SONI</div>
 
         </div>
         <div id="text-container">
             <div>
                 <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.
-                    Sign up now to get started.
+                    Sign up <i>now </i>to get started.
                 </p>
                 <br>
-                <p>You know you want it</p>
+                <p>You <i>know</i> you want it</p>
             </div>
             <div>
-                <h3>Lets do this!</h3>
+                <form action="#" method="" onsubmit="checkPass()">
+                    <div class="formBorder">
+                        <h3>Lets do this!</h3>
 
-                <form action="" method="post">
-                    <fieldset>
-                        <legend>First Name</legend>
-                        <input type="text" name="" id="">
-                    </fieldset>
+                        <table>
+                            <tr>
+                                <td>
+                                    <fieldset>
+                                        <legend>FIRST NAME</legend>
+                                        <input type="text" name="first-name" id="first-name" required>
+                                    </fieldset>
+                                </td>
+                                <td>
+                                    <fieldset>
+                                        <legend>LAST NAME</legend>
+                                        <input type="text" name="last-name" id="last-name" required>
+                                    </fieldset>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <fieldset>
+                                        <legend>EMAIL</legend>
+                                        <input type="email" name="email" id="email" required>
+                                    </fieldset>
+                                </td>
+                                <td>
+                                    <fieldset>
+                                        <legend>PHONE NUMBER</legend>
+                                        <input type="number" name="number" id="number" maxlength="10">
+                                    </fieldset>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td id="passwordDiv">
+                                    <fieldset>
+                                        <legend>PASSWORD</legend>
+                                        <input type="password" name="password" id="password" minlength="8" maxlength="10">
+                                    </fieldset>
+                                </td>
+                                <td id="re-passwordDiv">
+                                    <fieldset>
+                                        <legend>CONFIRM PASSWORD</legend>
+                                        <input type="password" name="re-password" id="re-password" minlength="8" maxlength="10">
+                                    </fieldset>
+                                </td>
+                                
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <div class="button-section">
+                        <button type="submit">Create Account</button>
+                        <span><p>Already have an account?<span class="login"> Log in</span></p></span>
+                    </div>
+
                     
-                    <fieldset>
-                        <legend>Last Name</legend>
-                        <input type="text" name="" id="">
-                    </fieldset>
-                    <fieldset>
-                        <legend>Email</legend>
-                        <input type="email" name="" id="">
-                    </fieldset>
-                    <fieldset>
-                        <legend>Phone Number</legend>
-                        <input type="number" name="" id="">
-                    </fieldset>
-                    <fieldset>
-                        <legend>Password</legend>
-                        <input type="password" name="" id="">
-                    </fieldset>
-                    <fieldset>
-                        <legend>Confirm Password</legend>
-                        <input type="password" name="" id="">
-                    </fieldset>
-
                 </form>
-            </div>
-            <div>
-                <button type="button">Create Account</button>
-                <br>
-                <p>Already have an account? Log in</p>
             </div>
 
         </div>
     </main>
+
+    <script type="text/javascript">
+
+        let passwordDiv = document.getElementById("passwordDiv");
+        let rePasswordDiv = document.getElementById("re-passwordDiv");
+        let formVar = document.querySelector("form");
+
+
+        function checkPass(){
+
+            event.preventDefault();
+            let pass = document.getElementById("password");
+            let rePass = document.getElementById("re-password");
+
+
+            if(pass.value != "" && rePass.value != ""){
+                
+                if(pass.value == rePass.value){
+                    alert("You have logged in!");
+                    passwordDiv.innerHTML = `<fieldset>
+                                            <legend>PASSWORD</legend>
+                                            <input type="password" name="password" id="password" minlength="8" maxlength="10">
+                                        </fieldset>`;
+        
+                    rePasswordDiv.innerHTML = `<fieldset>
+                                            <legend>CONFIRM PASSWORD</legend>
+                                            <input type="password" name="re-password" id="re-password" minlength="8" maxlength="10">
+                                        </fieldset>`;
+        
+                    formVar.submit();
+                    
+        
+                }
+                else{
+                    formVar.setAttribute("onsubmit",false);
+                    passwordDiv.innerHTML = `<fieldset>
+                                            <legend>PASSWORD</legend>
+                                            <input type="password" name="password" id="password" minlength="8" maxlength="10">
+                                            <p class="error">*Password don't match</p>  
+                                        </fieldset>`;
+                    rePasswordDiv.innerHTML = `<fieldset>
+                                            <legend>CONFIRM PASSWORD</legend>
+                                            <input type="password" name="re-password" id="re-password" minlength="8" maxlength="10">
+                                            <p class="error">*Password don't match</p>
+                                        </fieldset>`;
+            }
+        }
+        
+
+
+        }
+
+
+
+
+
+    </script>
     
 </body>
 </html>
