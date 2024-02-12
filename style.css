@@ -1,26 +1,27 @@
+/* imported font from local src */
+@font-face {
+    font-family: "Zeyada";
+    src: url("Zeyada Font/Zeyada-Regular.ttf");
+}
+
+/* variables to avoid repetation value */
 :root{
     --div-full-size:100vh;
     --img-container: 25vw;
     --text-container-margin: calc(var(--img-container) - 100vw);
     --box-size: 73%;
     --bold-text-size: 25px;
-
 }
 
+/* universal selector */
 *{
     margin: 0px;
     padding: 0px;
     font-family: "Zeyada",Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
-
-
-@font-face {
-    font-family: "Zeyada";
-    src: url("Zeyada Font/Zeyada-Regular.ttf");
-}
-
-
+/* style for image container containing background img, logo and logo name */
 #image-container{
     position: static;
     width: var(--img-container);
@@ -29,6 +30,8 @@
     background-size: cover;
 }
 
+
+/* for logo and name content */
 #image-container > div{
     bottom: 0px;
     position: absolute;
@@ -41,7 +44,14 @@
 }
 
 
+/* style for text container containing title, forms and buttons */
+#text-container > *{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: var(--bold-text-size);
+}
 
+/* text container */
 #text-container{
     margin-left: var(--img-container);
     width: 100vw;
@@ -51,7 +61,7 @@
     top: 0px;
 }
 
-
+/* title */
 #text-container div:first-child{
     width: var(--box-size);
     padding: 50px;
@@ -59,22 +69,22 @@
     font-weight: 900;
 }
 
-
+/* heading */
 #text-container div:nth-child(2) h3:first-child{
     font-weight: 900;
     font-size: var(--bold-text-size) ;
-
+    
 }
 
-#text-container > *{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: 20px;
+.formBorder{
+    box-shadow: 3px 3px 10px;
+    margin: 10px;
+    margin-left:0px ;
 }
 
+/* style for fieldset */
 fieldset {
     border: 0px;
-
     margin: 10px;
     padding: 5px;
 }
@@ -86,6 +96,8 @@ legend{
     font-size: 1cqmax;
 }
 
+
+/* input styles */
 input{
     height: 30px;
     width: 280px;
@@ -93,8 +105,12 @@ input{
     border: 2px solid #E5E7EB;
     border-radius: 5px;
 }
+input:focus{
+    box-shadow: 0px 0px black;
+    border-color: black;
+}
 
-
+/* style for the button */
 button{
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -111,34 +127,24 @@ main div:last-child p{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#text-container div:nth-child(3){
-    margin: 0px;
-    width: 78.5%;
-    padding: 10px;
-
-}
-
+/* style for error message */
 .error{
-    border: 2px solid red;
+    font-size: 10px;
+    color: red;
+    font-style: italic;
+    border: 0px;
+    font-weight: 100;
 }
 
-input:focus{
-    box-shadow: 0px 0px black;
-    border-color: black;
-}
 
 
+/* log in button */
 .login{
     font-family: Arial, Helvetica, sans-serif;
     color: #596D48;
 }
 
 
-.formBorder{
-    box-shadow: 3px 3px 10px;
-    margin: 10px;
-    margin-left:0px ;
-}
 
 .button-section{
     margin-left: 30px ;
@@ -148,13 +154,6 @@ input:focus{
     margin: 10px;
 }
 
-.error{
-    font-size: 10px;
-    color: red;
-    font-style: italic;
-    border: 0px;
-    font-weight: 100;
-}
 
 
 
