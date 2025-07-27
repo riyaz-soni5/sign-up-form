@@ -1,131 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <!-- main page where two divs contains -->
-    <main>
-      <!-- image and logo div -->
-      <div id="image-container" style="color: white; font-size: 50px">
-        <div style="color: black">
-          <img
-            src="/assets/bird-osprey-shape.png"
-            alt="this is a logo"
-            style="width: 40%"
-          />SONI
-        </div>
+  <body class="flex-container">
+    <aside class="flex-container flex-direction-col">
+      <div class="aside-buttons flex-container">
+        <p>Sign up</p>
+        <button type="button">Join us</button>
       </div>
+      <div>
+        <h1>Vertix</h1>
+      </div>
+    </aside>
 
-      <!-- text div where title,forms and buttons contains -->
-      <div id="text-container">
-        <!-- Title div -->
-        <div>
-          <p>
-            This is not a real online service! You know you need something like
-            this in your life to help you realize your deepest dreams. Sign up
-            <i>now </i>to get started.
-          </p>
-          <br />
-          <p>You <i>know</i> you want it</p>
-        </div>
+    <section class="main-container flex-container flex-direction-col">
+      <div class="header">
+        <h1>Sign Up</h1>
+        <p>Let's start with some facts about you</p>
+      </div>
+      <div class="form-container">
+        <form
+          action="./sucessLogin.html"
+          method="post"
+          class="flex-container flex-direction-col"
+        >
+          <fieldset
+            class="input-area-container flex-container flex-direction-col"
+          >
+            <div class="flex-container">
+              <div class="flex-container flex-direction-col">
+                <h5>FIRST NAME</h5>
+                <input type="text" name="first-name" id="first-name" minlength="3" required />
+              </div>
 
-        <!-- Form div -->
-        <div>
-          <form action="#" method="" onsubmit="checkPass()">
-            <div class="formBorder">
-              <h3>Lets do this!</h3>
-
-              <table>
-                <tr>
-                  <td>
-                    <fieldset>
-                      <legend>FIRST NAME</legend>
-                      <input
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        required
-                      />
-                    </fieldset>
-                  </td>
-                  <td>
-                    <fieldset>
-                      <legend>LAST NAME</legend>
-                      <input
-                        type="text"
-                        name="last-name"
-                        id="last-name"
-                        required
-                      />
-                    </fieldset>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <fieldset>
-                      <legend>EMAIL</legend>
-                      <input type="email" name="email" id="email" required />
-                    </fieldset>
-                  </td>
-                  <td>
-                    <fieldset>
-                      <legend>PHONE NUMBER</legend>
-                      <input
-                        type="number"
-                        name="number"
-                        id="number"
-                        maxlength="10"
-                      />
-                    </fieldset>
-                  </td>
-                </tr>
-                <tr>
-                  <td id="passwordDiv">
-                    <fieldset>
-                      <legend>PASSWORD</legend>
-                      <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        minlength="8"
-                        maxlength="10"
-                      />
-                    </fieldset>
-                  </td>
-                  <td id="re-passwordDiv">
-                    <fieldset>
-                      <legend>CONFIRM PASSWORD</legend>
-                      <input
-                        type="password"
-                        name="re-password"
-                        id="re-password"
-                        minlength="8"
-                        maxlength="10"
-                      />
-                    </fieldset>
-                  </td>
-                </tr>
-              </table>
+              <div class="flex-container flex-direction-col">
+                <h5>LAST NAME</h5>
+                <input type="text" name="last-name" id="last-name" minlength="3" required />
+              </div>
             </div>
 
-            <!-- submit button div -->
+            <div class="flex-container">
+              <div class="flex-container flex-direction-col">
+                <h5>EMAIL</h5>
+                <input type="email" name="email" id="email" required />
+              </div>
+            </div>
 
-            <div class="button-section">
+            <div class="flex-container">
+              <div class="flex-container flex-direction-col">
+                <h5>PHONE NUMBER</h5>
+                <input type="tel" name="number" id="number" minlength="10" maxlength="10" pattern="[0-9]{10}" required />
+              </div>
+
+              <div class="flex-container flex-direction-col">
+                <h5>GENDER</h5>
+                <select name="gender" id="gender">
+                  <option value="male" selected>Male</option>
+                  <option value="female">Female</option>
+                  <option value="none">Prefer Not To Say</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex-container">
+              <div class="flex-container flex-direction-col">
+                <h5>PASSWORD</h5>
+                <input type="password" name="password" id="password" minlength="8" required />
+              </div>
+
+              <div class="flex-container flex-direction-col">
+                <h5>CONFIRM PASSWORD</h5>
+                <input
+                  type="password"
+                  name="confirm-password"
+                  id="confirm-password"
+                  required
+                />
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="flex-container  flex-direction-col">
+            <div class="create-btn-con">
               <button type="submit">Create Account</button>
-              <span
-                ><p>
-                  Already have an account?<span class="login"> Log in</span>
-                </p></span
-              >
             </div>
-          </form>
-        </div>
+            <div>
+              <p>Already have an account? <a href="#">Login</a></p>
+            </div>
+          </fieldset>
+        </form>
       </div>
-    </main>
+    </section>
 
     <!-- script for checking if the password and confirm password are same or not -->
     <script type="text/javascript">

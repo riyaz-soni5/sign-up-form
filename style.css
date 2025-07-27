@@ -1,159 +1,254 @@
-/* imported font from local src */
-@font-face {
-    font-family: "Zeyada";
-    src: url("Zeyada Font/Zeyada-Regular.ttf");
-}
+/* importing font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/* variables to avoid repetation value */
+
+
+/* setting up the root variable */
 :root{
-    --div-full-size:100vh;
-    --img-container: 25vw;
-    --text-container-margin: calc(var(--img-container) - 100vw);
-    --box-size: 73%;
-    --bold-text-size: 25px;
+    font-size: 16px;
+    --error-color: red;
+    --correct-color: green;
 }
 
-/* universal selector */
+:root{
+    --primary-color: white;
+    --secondary-color: #F9FBFC;
+    --highlighted-text-color: white;
+    --text-color: black;
+    --img-invert: 0%;
+    --button-background: #2E8B57;
+    --shade: #F7FBFE;
+}
+
+/* changing the default styling */
 *{
     margin: 0px;
     padding: 0px;
-    font-family: "Zeyada",Arial, Helvetica, sans-serif;
-    overflow: hidden;
-}
-
-/* style for image container containing background img, logo and logo name */
-#image-container{
-    position: static;
-    width: var(--img-container);
-    height: var(--div-full-size);
-    background-image: url(/assets/olena-bohovyk-3BlVILvh9hM-unsplash.jpg);
-    background-size: cover;
+    font-family: 'Inter', 'Times New Roman', Times, serif;
 }
 
 
-/* for logo and name content */
-#image-container > div{
-    bottom: 0px;
+
+.flex-container{
+    display: flex;
+}
+
+.flex-direction-col{
+    flex-direction: column;
+}
+
+body{
+    color: var(--text-color);
+    background: var(--secondary-color);
+}
+
+/* aside div styling */
+
+aside{
+    width: 40vw;
+    height: 100vh;
+    background: url("./assets/Pictures/Nepal-Elephant-Img.jpg") center/cover no-repeat;
+    background-position: -100px;
+    justify-content: center;
+    align-items: center;
+    color: var(--highlighted-text-color);
+    position: relative;
+}
+
+
+.aside-buttons{
     position: absolute;
-    top: 40%;
-    width: var(--img-container);
-    height: 20%;
-    font-size: 100%;
+    right: 30px;
+    top: 30px;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
 
-    background-color: rgba(255, 255, 255, 0.6);
+.aside-buttons button{
+    font-size: 1rem;
+    color: var(--highlighted-text-color);
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    background-color: rgba(255, 255, 255, 0);
 }
 
 
-/* style for text container containing title, forms and buttons */
-#text-container > *{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: var(--bold-text-size);
+.aside-buttons button:hover{
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
-/* text container */
-#text-container{
-    margin-left: var(--img-container);
-    width: 100vw;
-    height: var(--div-full-size);
-    background-color: white;
-    position: absolute;
-    top: 0px;
+
+aside h1{
+    font-size: 4rem;
 }
 
-/* title */
-#text-container div:first-child{
-    width: var(--box-size);
-    padding: 50px;
-    font-size: var(--bold-text-size);
-    font-weight: 900;
-}
-
-/* heading */
-#text-container div:nth-child(2) h3:first-child{
-    font-weight: 900;
-    font-size: var(--bold-text-size) ;
-    
-}
-
-.formBorder{
-    box-shadow: 3px 3px 10px;
-    margin: 10px;
-    margin-left:0px ;
-}
-
-/* style for fieldset */
-fieldset {
-    border: 0px;
-    margin: 10px;
-    padding: 5px;
-}
-
-legend{
+.header p{
     color: grey;
-    font-family: monospace,Arial, Helvetica, sans-serif;
-    font-size: smaller;
-    font-size: 1cqmax;
 }
 
 
-/* input styles */
-input{
-    height: 30px;
-    width: 280px;
-    font-family: Arial, Helvetica, sans-serif;
-    border: 2px solid #E5E7EB;
-    border-radius: 5px;
-}
-input:focus{
-    box-shadow: 0px 0px black;
-    border-color: black;
+
+/* main div styling */
+
+.main-container{
+    background: var(--primary-color);
+    width: 60vw;
+    height: 100vh;
 }
 
-/* style for the button */
-button{
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    height: 50px;
-    width: 150px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #596D48;
-    border: 2px solid white;
-    box-shadow: 5px 5px 5px;
+.header,form{
+    padding: 100px;
 }
 
-main div:last-child p{
-    font-family: Arial, Helvetica, sans-serif;
+.header{
+    padding-bottom:50px ;
+}
+.header h1{
+    font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
-/* style for error message */
-.error{
-    font-size: 10px;
-    color: red;
-    font-style: italic;
+.header p{
+    font-size: clamp(1rem, 5vw, 1.2rem);
+}
+
+/* form styling */
+
+form{
+    width: 60%;
+    gap: 20px;
+    padding-top: 0px;
+}
+
+fieldset{
+    width: 100%;
+    gap: 20px;
     border: 0px;
-    font-weight: 100;
+}
+
+fieldset > div{
+    gap: 10px;
+}
+
+fieldset div div{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    gap: 10px;
+    flex: 1;
+    color: grey;
+}
+
+.input-area-container{
+    border: 1px solid var(grey);
+    background: var(--primary-color);
+}
+
+input {
+    background-color: var(--primary-color);
+    font-size: 1rem;
+    border: 0px;
+    color: var(--text-color);
+    padding: 5px;
+}
+
+input:focus{
+    outline: none;
+    border: 1px solid grey;
+}
+
+#gender{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 0px;
+}
+
+
+form fieldset:first-child div:first-child p{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+
+.create-btn-con{
+    width: 100%;
+    height: 100%;
+}
+
+.create-btn-con button{
+    width: 100%;
+    padding: 10px;
+    background: var(--text-color);
+    color: var(--primary-color);
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 
 
-/* log in button */
-.login{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #596D48;
+
+/* @media query for responsiveness */
+
+
+@media (max-width: 800px){
+    body{
+        flex-direction: column;
+    }
+
+    aside{
+        background-position: 0px;
+        height: 30vh;
+        width: 100vw;
+    }
+
+    .main-container{
+        width: 100vw ;
+        padding: 0px;
+        margin-top: 10px;
+    }
+
+    .form-container{
+        width: 100vw;
+    }
+
+    form{
+        width: 100%;
+        padding: 40px;
+    }
+    .header{
+        padding: 10px;
+
+    }
+
+    
+    fieldset div{
+        flex-direction: column;
+        width: 80vw;
+    }
+
+    .create-btn-con button{
+        width: 85vw;
+    }
 }
 
 
+/* auto detects users dark/light mode */
 
-.button-section{
-    margin-left: 30px ;
+@media (prefers-color-scheme: dark){
+
+    :root{
+    --primary-color: black;
+    --secondary-color: #0D1117;
+    --highlighted-text-color: white;
+    --text-color: white;
+    --img-invert:100%;
+    --button-background: #22543D;
+    --shade: #1B1D1E;
 }
 
-.button-section p{
-    margin: 10px;
 }
-
-
-
-
