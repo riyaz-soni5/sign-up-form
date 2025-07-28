@@ -24,7 +24,7 @@
       </div>
       <div class="form-container">
         <form
-          action="./sucessLogin.html"
+          action=""
           method="post"
           class="flex-container flex-direction-col"
         >
@@ -34,12 +34,24 @@
             <div class="flex-container">
               <div class="flex-container flex-direction-col">
                 <h5>FIRST NAME</h5>
-                <input type="text" name="first-name" id="first-name" minlength="3" required />
+                <input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  minlength="3"
+                  required
+                />
               </div>
 
               <div class="flex-container flex-direction-col">
                 <h5>LAST NAME</h5>
-                <input type="text" name="last-name" id="last-name" minlength="3" required />
+                <input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  minlength="3"
+                  required
+                />
               </div>
             </div>
 
@@ -53,7 +65,15 @@
             <div class="flex-container">
               <div class="flex-container flex-direction-col">
                 <h5>PHONE NUMBER</h5>
-                <input type="tel" name="number" id="number" minlength="10" maxlength="10" pattern="[0-9]{10}" required />
+                <input
+                  type="tel"
+                  name="number"
+                  id="number"
+                  minlength="10"
+                  maxlength="10"
+                  pattern="[0-9]{10}"
+                  required
+                />
               </div>
 
               <div class="flex-container flex-direction-col">
@@ -69,7 +89,13 @@
             <div class="flex-container">
               <div class="flex-container flex-direction-col">
                 <h5>PASSWORD</h5>
-                <input type="password" name="password" id="password" minlength="8" required />
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  minlength="8"
+                  required
+                />
               </div>
 
               <div class="flex-container flex-direction-col">
@@ -83,9 +109,9 @@
               </div>
             </div>
           </fieldset>
-          <fieldset class="flex-container  flex-direction-col">
+          <fieldset class="flex-container flex-direction-col">
             <div class="create-btn-con">
-              <button type="submit">Create Account</button>
+              <button type="submit" class="create-btn">Create Account</button>
             </div>
             <div>
               <p>Already have an account? <a href="#">Login</a></p>
@@ -98,53 +124,36 @@
     <!-- script for checking if the password and confirm password are same or not -->
     <script type="text/javascript">
       //getting div using DOM
-      let passwordDiv = document.getElementById("passwordDiv");
-      let rePasswordDiv = document.getElementById("re-passwordDiv");
-      let formVar = document.querySelector("form");
+      let firstName = document.querySelector("#first-name");
+      let password = document.getElementById("password");
+      let conPassword = document.getElementById("confirm-password");
+      let formElement = document.querySelector("form");
+      let submitBtn = document.querySelector(".create-btn");
 
-      // function to run when submitting the form
-      function checkPass() {
-        // to stop defualt behavior of the form to be submitted when clicking on submit button
-        event.preventDefault();
-
-        // getting password and confirm password value
-        let pass = document.getElementById("password");
-        let rePass = document.getElementById("re-password");
-
-        // runs if password values are not empty
-        if (pass.value != "" && rePass.value != "") {
-          // checks if the values are same
-          if (pass.value == rePass.value) {
-            alert("You have logged in!");
-            passwordDiv.innerHTML = `<fieldset>
-                                            <legend>PASSWORD</legend>
-                                            <input type="password" name="password" id="password" minlength="8" maxlength="10">
-                                        </fieldset>`;
-
-            rePasswordDiv.innerHTML = `<fieldset>
-                                            <legend>CONFIRM PASSWORD</legend>
-                                            <input type="password" name="re-password" id="re-password" minlength="8" maxlength="10">
-                                        </fieldset>`;
-
-            // submits the form
-            formVar.submit();
-          }
-          // runs if the value are not same
-          else {
-            // displays error message
-            passwordDiv.innerHTML = `<fieldset>
-                                            <legend>PASSWORD</legend>
-                                            <input type="password" name="password" id="password" minlength="8" maxlength="10">
-                                            <p class="error">*Password don't match</p>  
-                                        </fieldset>`;
-            rePasswordDiv.innerHTML = `<fieldset>
-                                            <legend>CONFIRM PASSWORD</legend>
-                                            <input type="password" name="re-password" id="re-password" minlength="8" maxlength="10">
-                                            <p class="error">*Password don't match</p>
-                                        </fieldset>`;
-          }
+      conPassword.addEventListener("keyup", () => {
+        if (password.value === conPassword.value) {
+          conPassword.style.border = "none";
+          submitBtn.style.cursor = "pointer";
+          submitBtn.disabled = false;
+        } else {
+          conPassword.style.border = "1px Solid Red";
+          submitBtn.style.cursor = "not-allowed";
+          submitBtn.disabled = true;
         }
+      });
+
+      function sucessMsg() {
+        alert(`Login Sucessful!\nWelcome to the club ${firsName.value}.`);
       }
+
+      formElement.onsubmit = (e)=>{
+
+        e.preventDefault();
+
+        alert(`Account Created Successfully!\nWelcome ${firstName.value}.`)
+        window.location.reload()
+      }
+
     </script>
   </body>
 </html>
